@@ -1,0 +1,429 @@
+// EF Core Model for TestLink Database
+
+namespace TestLink.Models
+{
+    public class NodeHierarchy
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public int NodeType { get; set; }
+        public string Name { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class Testproject
+    {
+        public int Id { get; set; }
+        public string Prefix { get; set; }
+        public string ApiKey { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Active { get; set; }
+    }
+
+    public class Testcase
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class TestcaseVersion
+    {
+        public int Id { get; set; }
+        public int TestcaseId { get; set; }
+        public int Version { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Active { get; set; }
+    }
+
+    public class Requirement
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class RequirementVersion
+    {
+        public int Id { get; set; }
+        public int RequirementId { get; set; }
+        public int Version { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Active { get; set; }
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public int RoleId { get; set; }
+        public string Email { get; set; }
+        public string First { get; set; }
+        public string Last { get; set; }
+        public string Locale { get; set; }
+        public int? DefaultTestprojectId { get; set; }
+        public bool Active { get; set; }
+    }
+
+    public class UserRole
+    {
+        public int UserId { get; set; }
+        public int TestprojectId { get; set; }
+        public int RoleId { get; set; }
+    }
+
+    public class Testplan
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class TestplanRole
+    {
+        public int UserId { get; set; }
+        public int TestplanId { get; set; }
+        public int RoleId { get; set; }
+    }
+
+    public class Execution
+    {
+        public int Id { get; set; }
+        public int TestplanId { get; set; }
+        public int TestcaseVersionId { get; set; }
+        public int BuildId { get; set; }
+        public int PlatformId { get; set; }
+        public DateTime ExecutionTs { get; set; }
+        public bool Status { get; set; }
+    }
+
+    public class Build
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class Platform
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class TestCasePlatform
+    {
+        public int TestcaseId { get; set; }
+        public int TestcaseVersionId { get; set; }
+        public int PlatformId { get; set; }
+    }
+
+    public class TestCaseRelation
+    {
+        public int Id { get; set; }
+        public int SourceId { get; set; }
+        public int DestinationId { get; set; }
+        public int RelationType { get; set; }
+        public bool Status { get; set; }
+    }
+
+    public class RequirementRelation
+    {
+        public int Id { get; set; }
+        public int SourceId { get; set; }
+        public int DestinationId { get; set; }
+        public int RelationType { get; set; }
+        public bool Status { get; set; }
+    }
+
+    public class RequirementMonitor
+    {
+        public int RequirementId { get; set; }
+        public int UserId { get; set; }
+        public int TestprojectId { get; set; }
+    }
+
+    public class TextTemplate
+    {
+        public int Id { get; set; }
+        public int Type { get; set; }
+        public string Title { get; set; }
+        public string TemplateData { get; set; }
+        public int? AuthorId { get; set; }
+        public DateTime CreationTs { get; set; }
+        public bool IsPublic { get; set; }
+    }
+
+    public class Plugin
+    {
+        public int Id { get; set; }
+        public string Basename { get; set; }
+        public bool Enabled { get; set; }
+        public int? AuthorId { get; set; }
+        public DateTime CreationTs { get; set; }
+    }
+
+    public class PluginConfiguration
+    {
+        public int Id { get; set; }
+        public int TestprojectId { get; set; }
+        public string ConfigKey { get; set; }
+        public int ConfigType { get; set; }
+        public string ConfigValue { get; set; }
+        public int? AuthorId { get; set; }
+        public DateTime CreationTs { get; set; }
+    }
+
+    public class IssueTracker
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public string Config { get; set; }
+    }
+
+    public class TestprojectIssueTracker
+    {
+        public int TestprojectId { get; set; }
+        public int IssueTrackerId { get; set; }
+    }
+
+    public class CodeTracker
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public string Config { get; set; }
+    }
+
+    public class TestprojectCodeTracker
+    {
+        public int TestprojectId { get; set; }
+        public int CodeTrackerId { get; set; }
+    }
+
+    public class RequirementManagerSystem
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public string Config { get; set; }
+    }
+
+    public class TestprojectRequirementManagerSystem
+    {
+        public int TestprojectId { get; set; }
+        public int RequirementManagerSystemId { get; set; }
+    }
+
+    public class RequirementSpec
+    {
+        public int Id { get; set; }
+        public int TestprojectId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int TotalRequirement { get; set; }
+        public int Status { get; set; }
+        public int Type { get; set; }
+    }
+
+    public class RequirementSpecRevision
+    {
+        public int Id { get; set; }
+        public int ParentId { get; set; }
+        public int Revision { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int TotalRequirement { get; set; }
+        public int Status { get; set; }
+        public int Type { get; set; }
+        public string LogMessage { get; set; }
+        public int? AuthorId { get; set; }
+        public DateTime CreationTs { get; set; }
+        public int? ModifierId { get; set; }
+        public DateTime ModificationTs { get; set; }
+    }
+
+    public class RequirementRevision
+    {
+        public int Id { get; set; }
+        public int ParentId { get; set; }
+        public int Revision { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Status { get; set; }
+        public int Type { get; set; }
+        public int Active { get; set; }
+        public int IsOpen { get; set; }
+        public int ExpectedCoverage { get; set; }
+        public string LogMessage { get; set; }
+        public int? AuthorId { get; set; }
+        public DateTime CreationTs { get; set; }
+        public int? ModifierId { get; set; }
+        public DateTime ModificationTs { get; set; }
+    }
+
+    public class UserAssignment
+    {
+        public int Id { get; set; }
+        public int Type { get; set; }
+        public int FeatureId { get; set; }
+        public int UserId { get; set; }
+        public int BuildId { get; set; }
+        public DateTime DeadlineTs { get; set; }
+        public int AssignerId { get; set; }
+        public DateTime CreationTs { get; set; }
+        public int Status { get; set; }
+    }
+
+    public class Transaction
+    {
+        public int Id { get; set; }
+        public string EntryPoint { get; set; }
+        public int StartTime { get; set; }
+        public int EndTime { get; set; }
+        public int UserId { get; set; }
+        public string SessionId { get; set; }
+    }
+
+    public class UserGroup
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class UserGroupAssign
+    {
+        public int UsergroupId { get; set; }
+        public int UserId { get; set; }
+    }
+
+    public class ObjectKeyword
+    {
+        public int Id { get; set; }
+        public int FkId { get; set; }
+        public string FkTable { get; set; }
+        public int KeywordId { get; set; }
+    }
+
+    public class TestCaseKeyword
+    {
+        public int Id { get; set; }
+        public int TestcaseVersionId { get; set; }
+        public int KeywordId { get; set; }
+    }
+
+    public class RequirementKeyword
+    {
+        public int Id { get; set; }
+        public int RequirementVersionId { get; set; }
+        public int KeywordId { get; set; }
+    }
+
+    public class TestSuite
+    {
+        public int Id { get; set; }
+        public string Details { get; set; }
+    }
+
+    public class BaselineContext
+    {
+        public int Id { get; set; }
+        public int TestplanId { get; set; }
+        public int PlatformId { get; set; }
+        public DateTime BeginExecTs { get; set; }
+        public DateTime EndExecTs { get; set; }
+        public DateTime CreationTs { get; set; }
+    }
+
+    public class BaselineDetail
+    {
+        public int Id { get; set; }
+        public int ContextId { get; set; }
+        public int TopTsuiteId { get; set; }
+        public int ChildTsuiteId { get; set; }
+        public string Status { get; set; }
+        public int Qty { get; set; }
+        public int TotalTc { get; set; }
+    }
+
+    public class TestLinkView
+    {
+        public int TestcaseId { get; set; }
+        public int Version { get; set; }
+        public int TcversionId { get; set; }
+    }
+
+    public class TestLinkView2
+    {
+        public int TestcaseId { get; set; }
+        public int Version { get; set; }
+        public int TcversionId { get; set; }
+    }
+
+    public class TestLinkView3
+    {
+        public int ReqId { get; set; }
+        public int Version { get; set; }
+        public int ReqVersionId { get; set; }
+    }
+
+    public class TestLinkView4
+    {
+        public int ReqSpecId { get; set; }
+        public int TestprojectId { get; set; }
+        public int Revision { get; set; }
+    }
+
+    public class TestLinkView5
+    {
+        public int TestcaseId { get; set; }
+        public int TcversionId { get; set; }
+    }
+
+    public class TestLinkView6
+    {
+        public int TestcaseId { get; set; }
+        public int TcversionId { get; set; }
+    }
+
+    public class TestLinkView7
+    {
+        public int TestcaseId { get; set; }
+        public int TcversionId { get; set; }
+    }
+
+    public class TestLinkView8
+    {
+        public string Prefix { get; set; }
+        public string TestprojectName { get; set; }
+        public string Level1Name { get; set; }
+        public string Level2Name { get; set; }
+        public int TestprojectId { get; set; }
+        public int Level1Id { get; set; }
+        public int Level2Id { get; set; }
+    }
+
+    public class TestLinkView9
+    {
+        public string TestplanName { get; set; }
+        public string YyyyMmDd { get; set; }
+        public string YyyyMm { get; set; }
+        public string Hh { get; set; }
+        public string Hour { get; set; }
+        public int Id { get; set; }
+        public int TestplanId { get; set; }
+        public int TestcaseVersionId { get; set; }
+        public int BuildId { get; set; }
+        public int PlatformId { get; set; }
+        public DateTime ExecutionTs { get; set; }
+        public bool Status { get; set; }
+    }
+}
