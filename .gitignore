@@ -1,0 +1,50 @@
+# Binaries and build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.tmp
+*.log
+
+# NuGet packages
+packages/
+*.nupkg
+.nuget/
+
+# Rider/IntelliJ IDEA
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Environment files
+appsettings.Development.json
+appsettings.Local.json
+
+# Test results
+TestResults/
+*.trx
+
+# ASP.NET Core
+wwwroot/lib/
+
+# Entity Framework
+*.db
+*.db-shm
+*.db-wal
+
+# Windows
+[Tt]humbs.db
+[Dd]esktop.ini
