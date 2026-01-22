@@ -40,3 +40,4 @@ C:\Users\bogda\source\repos\ProtosAlpha\TestLinkBackend\obj\Debug\net9.0\TestLin
 C:\Users\bogda\source\repos\ProtosAlpha\TestLinkBackend\obj\Debug\net9.0\ref\TestLinkBackend.dll
 C:\Users\bogda\source\repos\ProtosAlpha\TestLinkBackend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\bogda\source\repos\ProtosAlpha\TestLinkBackend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\bogda\source\repos\ProtosAlpha\TestLinkBackend\obj\Debug\net9.0\TestLinkBackend.sourcelink.json
